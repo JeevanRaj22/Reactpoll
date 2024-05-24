@@ -1,0 +1,9 @@
+.heading {
+    background-color: rgb(228, 224, 224);
+    padding: 3rem 2rem;
+  }
+#heading{
+    color: #000;
+    font-weight: bolder;
+    text-decoration: none;
+}

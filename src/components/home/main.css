@@ -1,0 +1,119 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.poll {
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+}
+.poll .heading {
+  color: #000;
+  font-weight: bolder;
+  background-color: rgb(228, 224, 224);
+  padding: 3rem 2rem;
+}
+.poll-body{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.create-poll {
+  width : 20%;
+  padding:2%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start ;
+}
+.create-poll #create-poll-btn{
+  width : 100%;
+  background-color: rgb(5, 166, 230);
+  margin-bottom: 5%;
+  font-weight: bold;
+  /* 
+  border: none;
+  border-radius: 4px;
+  padding : 4% 12%;
+  
+  color : #fff;
+  
+  font-size: 1.2rem; */
+  /* cursor: pointer; */
+}
+#filter-btn{
+  background-color: #c2c2c2;
+
+}
+.poll-list{
+  width: 100%;
+  list-style: none;
+  text-align: left;
+  padding : 7% 12%;
+  background-color: rgb(228, 224, 224);
+}
+.poll-list li{
+  margin : 7px 0;
+}
+
+.poll-table{
+  padding:2%;
+  width : 75%;
+}
+.poll-table table{
+  border-spacing: 0;
+}
+.poll-table table th{
+  color: #000;
+  font-weight: bolder;
+  background-color: rgb(228, 224, 224);
+  padding : .3rem .8rem;
+}
+.poll-table table td{
+  padding: 2rem .5rem;
+}
+.question-text{
+  text-decoration: none;
+  color:inherit;
+
+}
+
+@media all and (max-width: 700px) {
+  .poll{
+    margin-top: 0;
+    width : 100%;
+  }
+  .poll-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+  }
+  .create-poll{
+    width : 100%;
+  }
+  .poll-list {
+    padding : 7% 5%; 
+  }
+  .poll-table{
+    width : 100%;
+    overflow-x: auto;
+  }
+  .poll-table table td:last-child{
+    word-break: break-all;
+  }
+  .poll-table table td:first-child,
+  .poll-table table td:nth-child(3)
+  {
+    word-break: break-all;
+    width: 10%;
+  }
+  .poll-table table td:nth-child(2),.poll-table table th:nth-child(2){
+    width: 60%;
+  }
+}

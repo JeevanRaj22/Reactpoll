@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .poll {
+    width: 80%;
+    margin: auto;
+    margin-top: 2rem;
+  }
+  .vote-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .poll-question{
+    padding : 1% 3%;
+  }
+  .poll-ans-form{
+    padding : 1% 3%;
+  }
+  .radio-btn {
+    margin-bottom: .8rem;
+  }
+  #vote-btn{
+    padding: .3rem .8rem;
+    border-radius: 5px;
+    margin-top: .6rem;
+    cursor: pointer;
+  }
+  @media all and (max-width: 600px) {
+    .poll{
+      margin-top: 0;
+      width : 100%;
+    }
+  }
