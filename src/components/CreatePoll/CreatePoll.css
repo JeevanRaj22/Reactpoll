@@ -39,7 +39,7 @@
     border-radius: 5px;
     border : none;
   }
-  .form-field .input-field:hover{
+  .form-field .input-field-hover:hover{
     border: 1px solid #000;
     transform: scale(1.1);
     transition: .3s ease-in-out;
@@ -60,10 +60,7 @@
   .form-field .option-field .input-field{
     flex: 8;
   }
-  .form-field .option-field .input-field{
-    pointer-events: none;
   
-}
 
   #add-options-btn{
     padding: .2rem .6rem;

@@ -82,7 +82,7 @@ function CreatePoll() {
                     handleChange(e)}} >
                     <div className="form-field">
                         <h4>Question</h4>
-                        <input id = "Question-field" type="text" name="Question" className="input-field" placeholder="Type your question here" required/>
+                        <input id = "Question-field" type="text" name="Question" className="input-field input-field-hover" placeholder="Type your question here" required/>
                     </div>
                     <div className="form-field">
                         <h3>Answer Options</h3>
@@ -113,7 +113,7 @@ function CreatePoll() {
                     </div>
                     <div className="form-field">
                         <h4>Comma Separated Tags</h4>
-                        <input type="text" name="Tags" className="input-field"  placeholder="Tags:tag1,tag2" />
+                        <input type="text" name="Tags" className="input-field input-field-hover"  placeholder="Tags:tag1,tag2" />
                     </div>
             
                       <Button variant="contained" size="large" type="submit" id="submit-btn">Create</Button>
