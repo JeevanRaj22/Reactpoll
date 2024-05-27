@@ -1,17 +1,14 @@
+import React from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 10},
-  { field: 'option', headerName: 'Options', width: 70,sortable: false },
-  { field: 'vote', headerName: 'Vote', width: 20 },
+  { field: 'id', headerName: 'ID',flex : 1},
+  { field: 'option', headerName: 'Options',flex :3},
+  { field: 'vote', headerName: 'Vote',flex : 1},
 ];
 
-// const rows = [
-//   { id: 1, option : "yes",vote:34},
-//   { id: 2, option : "no",vote:34}
-// ];
-
 let rows = []
+
 
 export default function VoteDetailsTable(props) {
   props.options.forEach((option,index)=>{

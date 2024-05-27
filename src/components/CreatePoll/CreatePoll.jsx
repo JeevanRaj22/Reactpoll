@@ -1,8 +1,12 @@
+import React from 'react'
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import Heading from '../Header/Heading'
 import './CreatePoll.css'
 import { Button } from '@mui/material'
+
+
+
 function CreatePoll() {
     const navigate = useNavigate();
     let [optionList,setOptionList] = useState([
@@ -21,8 +25,20 @@ function CreatePoll() {
     }
 
     let addOptionField = (e)=>{
+        
         let newOptionList = [ ...optionList,{ value : ""}];
         setOptionList(newOptionList);
+    }
+    let removeOptionField = (index)=>{
+        if(optionList.length>2){
+        let newOptionList = optionList.filter((element,i)=>i!==index)
+        console.log(newOptionList)
+        setOptionList(newOptionList);
+        }
+        else{
+            alert("there must be 2 options for a poll")
+        }
+        
     }
 
     let handleChange = (e) => {
@@ -71,13 +87,24 @@ function CreatePoll() {
                     <div className="form-field">
                         <h3>Answer Options</h3>
                         { optionList.map((opt,index)=>
-                            <input 
+
+                            (<div key={index} className="option-field"><input 
                             type="text" 
                             name={`option${index+1}`}
                             className="input-field"
-                            placeholder={opt.value || `Option ${index+1}`}
+                            placeholder={`Option ${index+1}`}
+                            value = {opt.value}
                             onChange={(e)=>{handleOptionsChange(e,index)}} 
                             />
+                            {optionList.length > 2 &&
+                            <span onClick={()=>{removeOptionField(index)}}className="material-symbols-outlined">do_not_disturb_on</span>
+                            }
+
+                            
+                          </div>
+                            )
+                            
+
                         )}
                        
                         <Button color="inherit" size='small' id="add-options-btn" onClick={(e)=>{

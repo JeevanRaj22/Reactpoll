@@ -1,4 +1,5 @@
 // import logo from './logo.svg';
+import React from 'react';
 import { useState,useEffect } from 'react';
 import './main.css';
 import Heading from '../Header/Heading';

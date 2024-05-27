@@ -35,7 +35,14 @@
   .form-field .input-field{
     margin : .4rem 0;
     width : 100%;
-    padding-right : 10% ;
+    padding : .9% 3%;
+    border-radius: 5px;
+    border : none;
+  }
+  .form-field .input-field:hover{
+    border: 1px solid #000;
+    transform: scale(1.1);
+    transition: .3s ease-in-out;
   }
   #submit-btn{
     margin-bottom: .9rem;
@@ -45,6 +52,19 @@
     cursor: pointer;
     border: 1px solid black;
   }
+  .form-field .option-field{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .form-field .option-field .input-field{
+    flex: 8;
+  }
+  .form-field .option-field .input-field{
+    pointer-events: none;
+  
+}
+
   #add-options-btn{
     padding: .2rem .6rem;
     border-radius: 5px;

@@ -1,3 +1,4 @@
+import React from 'react'
 import Heading from '../Header/Heading'
 import './Vote.css'
 import { useLocation ,useNavigate} from 'react-router-dom'
@@ -29,7 +30,7 @@ function Vote() {
              if(!res.success){alert("error")}
              else{alert(res.msg);}
          })
-         navigate("/")
+         navigate(`/PollDetail/${state.id}`)
      }
   return (
     <div className='poll'>

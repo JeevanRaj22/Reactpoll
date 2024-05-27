@@ -1,6 +1,20 @@
+import React from 'react';
 import { useContext,useState } from 'react'
 import { MainContext } from './MainContext/MainContext';
-import { TableContainer,Table,TableHead,TableRow,TableCell,TableBody,Paper,TablePagination } from '@mui/material';
+//import { TableContainer,Table,TableHead,TableRow,TableCell,TableBody,Paper,TablePagination } from '@mui/material';
+import { DataGrid } from '@mui/x-data-grid';
+
+const columns = [
+  { field: 'id', headerName: 'Number',flex : 1},
+  { field: 'Question', headerName: 'Poll Question', 
+  renderCell: (params) => {
+    return <a class="question-text"href={"PollDetail/"+params.value["QuestionId"]}>{params.value.Question}</a>;
+  },flex :4},
+  { field: 'vote', headerName: 'Total Votes',flex : 1},
+  { field: 'tags', headerName: 'Tags',flex : 1},
+];
+
+let rows = [];
 
 export let getTotalVotes = (Votes)=>{
   let total = 0;
@@ -12,6 +26,23 @@ export let getTotalVotes = (Votes)=>{
 }
 function PollsTable() {
   const polls = useContext(MainContext);
+
+  polls.forEach((poll,index)=>{
+    if(index == 0){
+      rows = []
+      return;
+    }
+    rows.push(
+      {
+        id : index,
+        Question : poll,
+        vote:getTotalVotes(poll["OptionVote"]),
+        tags:poll["Tags"].join(","),
+      })
+  })
+
+
+  //for pagination
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
@@ -30,7 +61,18 @@ function PollsTable() {
   
   return (
     <div className="poll-table">
-      <Paper>
+       <DataGrid
+        autoHeight
+        rows={rows}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 5 },
+          },
+        }}
+        pageSizeOptions={[5, 10]}
+      />
+      {/* <Paper>
           <TableContainer  sx={{"border-spacing": 0}} container = {Paper}>
             <Table>
             <TableHead >
@@ -72,7 +114,7 @@ function PollsTable() {
             onPageChange={handleChangePage} 
             onRowsPerPageChange={handleChangeRowsPerPage} 
           />
-          </Paper>
+          </Paper> */}
         </div>
   )
 }

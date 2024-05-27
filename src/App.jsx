@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Main from './components/home/Main';
@@ -14,11 +15,6 @@ function App() {
           <Route path="/CreatePoll" element={<CreatePoll />} />
       </Routes>
     </BrowserRouter>
-
-    // <Main />
-    // <PollDetail />
-    //  <Vote />
-    // <CreatePoll />
   );
 }
 
