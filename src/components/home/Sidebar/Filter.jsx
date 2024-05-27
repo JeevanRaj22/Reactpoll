@@ -17,9 +17,9 @@ function Filter(props) {
   }
 
   let getPollByTags = ()=>{
-    console.log(selectedTags.length)
+    console.log(selectedTags)
     if(selectedTags.length !==0){
-      props.setApi( (api)=> `${api}?tags=${selectedTags.join(",")}`);
+      props.setApi( (api)=> `http://localhost:8000/polls?tags=${selectedTags.join(",")}`);
     }
     else{
       props.setApi("http://localhost:8000/polls");

@@ -14,7 +14,7 @@ const columns = [
   { field: 'tags', headerName: 'Tags',flex : 1},
 ];
 
-let rows = [];
+
 
 export let getTotalVotes = (Votes)=>{
   let total = 0;
@@ -26,15 +26,11 @@ export let getTotalVotes = (Votes)=>{
 }
 function PollsTable() {
   const polls = useContext(MainContext);
-
+  let rows = [];
   polls.forEach((poll,index)=>{
-    if(index == 0){
-      rows = []
-      return;
-    }
     rows.push(
       {
-        id : index,
+        id : index+1,
         Question : poll,
         vote:getTotalVotes(poll["OptionVote"]),
         tags:poll["Tags"].join(","),
@@ -43,20 +39,20 @@ function PollsTable() {
 
 
   //for pagination
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  // const [page, setPage] = useState(0);
+  // const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - polls.length) : 0;
+  // const emptyRows =
+  //   page > 0 ? Math.max(0, (1 + page) * rowsPerPage - polls.length) : 0;
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
+  // const handleChangePage = (event, newPage) => {
+  //   setPage(newPage);
+  // };
 
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
+  // const handleChangeRowsPerPage = (event) => {
+  //   setRowsPerPage(parseInt(event.target.value, 10));
+  //   setPage(0);
+  // };
 
   
   return (

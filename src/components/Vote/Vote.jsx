@@ -46,7 +46,7 @@ function Vote() {
                             return null
                         }
                         return(
-                            <><input type="radio" name="vote" value={e} className="radio-btn" /> {e}<br /></>
+                            <><input type="radio" name="vote" value={e} className="radio-btn" required/> {e}<br /></>
                         )})}
                     <Button variant='contained' fullWidth type="submit" id="vote-btn">Vote</Button>
                 </form>            
